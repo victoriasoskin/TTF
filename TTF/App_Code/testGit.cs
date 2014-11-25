@@ -8,5 +8,6 @@ namespace TTF.App_Code
     public class testGit
     {
         public int MyProperty { get; set; }
+        public int fffff { get; set; }
     }
 }
