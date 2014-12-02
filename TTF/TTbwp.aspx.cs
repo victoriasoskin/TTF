@@ -50,7 +50,7 @@ namespace TTF
             h.hdnCurrentEventId = hdnCurrentEventId;
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e) 
         {
 
             Session["UserId"] = getUserId();
