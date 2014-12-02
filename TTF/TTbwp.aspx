@@ -131,7 +131,7 @@
                         <table style="width: 100%; font-size: small;">
                             <tr>
                                 <td colspan="6" style="text-align: center;">
-                                    <span style="font-size: xx-large; font-weight: bold;"><%#"תוכנית תמיכות - " + Eval("Name") %></span>
+                                    <span style="font-size: xx-large; font-weight: bold;"><%# Eval("ActionType") +" - " +  Eval("Name") %></span>
 
                                 </td>
                             </tr>
@@ -140,7 +140,7 @@
                                 </td>
                                 <td>
                                     <%#Eval("CustomerID")%>
-                                    <asp:HiddenField runat="server" ID="hdnFormHeader" Value='<%#"תוכנית תמיכות חינוך " + Eval("Name") %>' />
+                                    <asp:HiddenField runat="server" ID="hdnFormHeader" Value='<%#"תוכנית תמיכות  " + Eval("Name") %>' />
                                 </td>
                                 <td style="font-weight: bold;">ת.לידה:
                                 </td>
@@ -613,7 +613,7 @@
                 <table runat="server" id="itemPlaceholderContainer" class="ptbl" >
                     <thead>
                         <tr>
-                            <td colspan="5" style="font-weight: bold; font-size: medium; text-align: center; background-color: #74a3e6; color: black; font-weight:bold; font-style:italic;font-size:x-large">בניית תוכנית תמיכות
+                            <td colspan="5" style="font-weight: bold; font-size: medium; text-align: center; background-color: #74a3e6; color: black; font-weight:bold; font-style:italic;font-size:x-large"> בניית תוכנית תמיכות
                                 <asp:Button runat="server" ID="lnkbShowAdd" Text="הוספת תמיכה חדשה" CssClass="btns" ForeColor="black" OnPreRender="lnkbShowAdd_PreRender" Font-Bold="true" OnClick="lnkbShowAdd_Click"></asp:Button>
                             </td>
                         </tr>
