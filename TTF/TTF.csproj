@@ -160,7 +160,6 @@
     <Compile Include="App_Code\bpClass.cs" />
     <Compile Include="App_Code\bpHelber.cs" />
     <Compile Include="App_Code\PageError.cs" />
-    <Content Include="App_Code\testGit.cs" />
     <Compile Include="App_Code\TT_Header.cs" />
     <Compile Include="App_Code\TT_MP.cs" />
     <Compile Include="App_Code\TT_WP.cs" />
