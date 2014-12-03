@@ -32,7 +32,7 @@ namespace TTF.App_Code
        public DataTable getHeader(int EventId,Int64 CustomerId,int FId)
         {
 
-            DataTable dt = u.selectDBQuesry(string.Format("SELECT '" + FormType + "' FormType,*,'" + URName + "' URName FROM book10.dbo.TT_Header({0},{1},{2})", CustomerId, FId, EventId));
+            DataTable dt = u.selectDBQuesry(string.Format("SELECT '" + FormType + "' FormType,*,'" + URName + "' URName FROM book10.dbo.TT_HeaderFixed({0},{1},{2})", CustomerId, FId, EventId));
             return dt;
         }
 
