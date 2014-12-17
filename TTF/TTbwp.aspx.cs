@@ -41,7 +41,7 @@ namespace TTF
             cCustEventTypeId = int.Parse(Request.QueryString["ET"]);
             cFormTypeId = int.Parse(Request.QueryString["FT"]);
 
-            u = new TTF.App_Code.Util();
+            u = new TTF.App_Code.Util();  
 
             h = new TTF.App_Code.bpHelber(Page, cFormTypeId, cCustEventTypeId);
           //  h.lvMP = lvMP;
