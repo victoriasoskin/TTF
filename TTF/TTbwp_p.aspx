@@ -475,6 +475,7 @@
                 </div>
             </div>
         </div>
+
         <%--    ---------------------------
             תוכנית שבועית
             -------------------------- ---%>
@@ -535,6 +536,8 @@
                     </ItemTemplate>
                 </asp:ListView>
             </div>
+
+
             <asp:ListView runat="server" ID="LVWeeklyPlan" DataSourceID="DSWeeklyPlan">
                 <LayoutTemplate>
                     <table id="itemPlaceholderContainer" runat="server" class="lstv" style="width: 640px; direction: rtl;">
@@ -580,7 +583,30 @@
                 </ItemTemplate>
             </asp:ListView>
         </div>
-
+        <div style="width: 100%;">
+            <table runat="server" id="tblsign">
+                <tr style="height: 30px;">
+                    <td>חתימת הדייר</td>
+                    <td>_______________________</td>
+                </tr>
+                <tr style="height: 30px;">
+                    <td>חתימת מדריך</td>
+                    <td>_______________________</td>
+                </tr>
+                <tr style="height: 30px;">
+                    <td>חתימת מתאמת</td>
+                    <td>_______________________</td>
+                </tr>
+                <tr style="height: 30px;">
+                    <td>חתימת מנהל</td>
+                    <td>_______________________</td>
+                </tr>
+                <tr style="height: 30px;">
+                    <td>חתימת משפחה</td>
+                    <td>_______________________</td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <asp:SqlDataSource ID="DSMP" runat="server" ConnectionString="<%$ ConnectionStrings:Book10PE %>" SelectCommand="SELECT * FROM Book10.dbo.TT_EduMP(@CustomerID,@EventID)" CancelSelectOnNullParameter="false">
