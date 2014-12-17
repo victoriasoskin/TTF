@@ -511,17 +511,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="NewTTLable" rowspan="2">מטרת על
-                                    </td>
+                                    <td class="NewTTLable" rowspan="2">מטרת על</td>
                                     <td>
-                                        <asp:DropDownList runat="server" ID="ddlPurpose" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" Width="150" OnPreRender="ddl_PreRender">
-                                        </asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="ddlPurpose" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged" Width="150" OnPreRender="ddl_PreRender" OnDataBinding="ddl_DataBinding"></asp:DropDownList>
                                         <asp:RequiredFieldValidator runat="server" ID="rfvPurpose" ControlToValidate="ddlPurpose" ErrorMessage="יש לבחור במטרה" ForeColor="Red" Display="Dynamic" />
-
                                         <br />
                                         <asp:TextBox runat="server" ID="tbPurpose" Columns="50" MaxLength="50" Style="display: none;" OnPreRender="tbOther_PreRender" />
-                                        <%--                                       <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ControlToValidate="tbPurpose" ErrorMessage="כאשר בוחרים ב 'אחר (...)' יש להקליד מטרה" ForeColor="Red" Display="Dynamic" />--%>
-
+                                        <%--<asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ControlToValidate="tbPurpose" ErrorMessage="כאשר בוחרים ב 'אחר (...)' יש להקליד מטרה" ForeColor="Red" Display="Dynamic" />--%>
                                     </td>
                                 </tr>
                                 <tr>
@@ -535,7 +531,7 @@
                             <tr>
                                 <td class="NewTTLable" style="width: 50px;">דרגת חשיבות</td>
                                 <td  style="padding-right: 5px;">
-                                    <asp:DropDownList runat="server" ID="ddlWeight" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" Width="150" OnPreRender="ddl_PreRender">
+                                    <asp:DropDownList runat="server" ID="ddlWeight" AppendDataBoundItems="true"  AutoPostBack="true"  OnDataBinding="ddl_DataBinding" Width="150" OnPreRender="ddl_PreRender">
                                     </asp:DropDownList><br />
                                     <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ControlToValidate="ddlWeight" ErrorMessage="יש לבחור בדרגת חשיבות" ForeColor="Red" Display="Dynamic" />
                                 </td>
@@ -759,7 +755,6 @@
                                                         <%#Eval("Subject") %>
                                                     </td>
                                                 </tr>
-
                                                 <tr>
                                                     <td class="EditrowHeader" rowspan="2">מטרת על
                                                     </td>

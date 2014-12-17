@@ -271,7 +271,7 @@ namespace TTF
             else
             {
                 lbl.BorderWidth = 0;
-                lbl.BorderColor = System.Drawing.Color.Transparent;
+                lbl.BorderColor = System.Drawing.Color.LightGray;
             }
         }
         protected void dlDetails_PreRender(object sender, System.EventArgs e)
