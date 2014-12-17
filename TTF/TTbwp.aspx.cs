@@ -44,7 +44,7 @@ namespace TTF
             u = new TTF.App_Code.Util();
 
             h = new TTF.App_Code.bpHelber(Page, cFormTypeId, cCustEventTypeId);
-            h.lvMP = lvMP;
+          //  h.lvMP = lvMP;
             h.lvWP = lvWP;
             h.LVWeeklyPlan = LVWeeklyPlan;
             h.hdnCurrentEventId = hdnCurrentEventId;
@@ -410,15 +410,15 @@ namespace TTF
         }
         protected void lvWP_PreRender(object sender, System.EventArgs e)
         {
-            if (lvMP.Items.Count > 0 || true)    //++ fake force lvwp to show
-            {
+            //if (lvMP.Items.Count > 0 || true)    //++ fake force lvwp to show
+            //{
                 if (lvWP.Items.Count == 0)
                     lvWP.InsertItemPosition = InsertItemPosition.FirstItem;
                 else
                     if (hdnItemHandled.Value == string.Empty) lvWP.InsertItemPosition = InsertItemPosition.None;
-            }
-            else
-                lvWP.InsertItemPosition = InsertItemPosition.None;
+            //}
+            //else
+            //    lvWP.InsertItemPosition = InsertItemPosition.None;
 
             if (hdnItemHandled.Value != string.Empty && int.Parse(hdnItemHandled.Value) >= 0) lvWP.EditIndex = 0;
         }
