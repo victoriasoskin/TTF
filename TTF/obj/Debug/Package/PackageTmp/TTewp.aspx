@@ -120,7 +120,7 @@
                         <table style="width: 100%; font-size: small;">
                             <tr>
                                 <td colspan="6" style="text-align: center;">
-                                    <span style="font-size: xx-large; font-weight: bold;"><%#"תוכנית תמיכות - " + Eval("Name") %></span>
+                                    <span style="font-size: xx-large; font-weight: bold;"><%#"תוכנית תמיכות - חינוך -" + Eval("Name") %></span>
 
                                 </td>
                             </tr>

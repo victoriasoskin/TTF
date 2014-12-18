@@ -609,11 +609,11 @@ namespace TTF
         protected void DS_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
             e.Command.Parameters["@EventId"].Value = h.EventId;
-            //try
-            //{
-            //    e.Command.Parameters["@FormTypeId"].Value = h.FormTypeId;
-            //}
-            //catch (Exception ex) { }
+            try
+            {
+                e.Command.Parameters["@FormTypeId"].Value = h.FormTypeId;
+            }
+            catch (Exception ex) { }
             try
             {
                 e.Command.Parameters["@NewFormTypeId"].Value = EduNewForm;
