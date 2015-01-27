@@ -137,6 +137,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="TestWP.aspx" />
     <Content Include="TTbwp.aspx" />
     <Content Include="TTbwp_p.aspx" />
     <Content Include="ttdfupList.aspx" />
@@ -179,6 +180,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestWP.aspx.cs">
+      <DependentUpon>TestWP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestWP.aspx.designer.cs">
+      <DependentUpon>TestWP.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TTbwp.aspx.cs">
       <DependentUpon>TTbwp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -38,7 +38,7 @@ namespace TTF.App_Code
         }
 
 
-        internal void deleteRecord(int Id)
+        internal void deleteRecord(long Id)
         {
             Exception ex = u.executeSql(string.Format("UPDATE TT_WP_Week SET Status = 1 WHERE Id={0}", Id));
         }

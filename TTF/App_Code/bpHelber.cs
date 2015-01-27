@@ -753,9 +753,9 @@ namespace TTF.App_Code
         }
         private void deleteWeeklyPlan(string[] s)
         {
-            int Id = (int)Math.Round(double.Parse(s[2]) / 100000);
+            long Id = (long)Math.Round(double.Parse(s[2]) / 1000000);
             openNewTTPlan();
-            if (Id != 0) copytoNewVersion("TT_WP_Week", "WwId", DetailsId);  // no updating
+            if (Id != 0) copytoNewVersion("TT_WP_Week", "WwId", DetailsId);  // no updating // check DetailsId value
 
             wk.deleteRecord(Id);
         }
