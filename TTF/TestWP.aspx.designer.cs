@@ -10,43 +10,34 @@
 namespace TTF {
     
     
-    public partial class TTbwp_p {
+    public partial class TestWP {
         
         /// <summary>
-        /// lnkbClose control.
+        /// lnkbback control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbClose;
+        protected global::System.Web.UI.WebControls.Button lnkbback;
         
         /// <summary>
-        /// lnkbPrint control.
+        /// HyperLink1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbPrint;
+        protected global::System.Web.UI.WebControls.Button HyperLink1;
         
         /// <summary>
-        /// lnkbword control.
+        /// hdnCurrentEventId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbword;
-        
-        /// <summary>
-        /// lnkbexcel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbexcel;
+        protected global::System.Web.UI.WebControls.HiddenField hdnCurrentEventId;
         
         /// <summary>
         /// hdnItemHandled control.
@@ -67,22 +58,22 @@ namespace TTF {
         protected global::System.Web.UI.WebControls.HiddenField hdnCurrentWpId;
         
         /// <summary>
-        /// hdnForm131 control.
+        /// hdnForm139 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnForm131;
+        protected global::System.Web.UI.WebControls.HiddenField hdnForm139;
         
         /// <summary>
-        /// hdnDate131 control.
+        /// hdnDate139 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnDate131;
+        protected global::System.Web.UI.WebControls.HiddenField hdnDate139;
         
         /// <summary>
         /// hdnWeekShow control.
@@ -103,13 +94,13 @@ namespace TTF {
         protected global::System.Web.UI.WebControls.ListView lvHdr;
         
         /// <summary>
-        /// lvMP control.
+        /// lnkbBacktoMainChart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvMP;
+        protected global::System.Web.UI.WebControls.Button lnkbBacktoMainChart;
         
         /// <summary>
         /// Chart1 control.
@@ -121,15 +112,6 @@ namespace TTF {
         protected global::System.Web.UI.DataVisualization.Charting.Chart Chart1;
         
         /// <summary>
-        /// lvHdr1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvHdr1;
-        
-        /// <summary>
         /// lvWP control.
         /// </summary>
         /// <remarks>
@@ -137,6 +119,15 @@ namespace TTF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvWP;
+        
+        /// <summary>
+        /// tblsign control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tblsign;
         
         /// <summary>
         /// divWeeklytimetable control.
@@ -148,15 +139,6 @@ namespace TTF {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divWeeklytimetable;
         
         /// <summary>
-        /// lvHdr2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvHdr2;
-        
-        /// <summary>
         /// LVWeeklyPlan control.
         /// </summary>
         /// <remarks>
@@ -164,15 +146,6 @@ namespace TTF {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView LVWeeklyPlan;
-        
-        /// <summary>
-        /// tblsign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tblsign;
         
         /// <summary>
         /// DSMP control.

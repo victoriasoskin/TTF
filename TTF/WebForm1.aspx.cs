@@ -11,7 +11,7 @@ namespace TTF
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("TTeup.aspx?CID=51914513&F=122&E=51026");
+           // Response.Redirect("TTeup.aspx?CID=51914513&F=122&E=51026");
         }
     }
 };

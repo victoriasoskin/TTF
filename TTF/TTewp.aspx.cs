@@ -50,10 +50,10 @@ namespace TTF
             h.divWeeklytimetable = divWeeklytimetable;
             h.lvWP = lvWP;
             
-            if (!IsPostBack)
-            {
-                //h.initForm();
-                h.initForm(cFormTypeId);
+            //if (!IsPostBack)
+            //{
+                h.initForm();
+               // h.initForm(cFormTypeId);
                 DataTable dt = h.p5Details(EduNewForm);
                 if (dt.Rows.Count > 0)
                 {
@@ -66,7 +66,7 @@ namespace TTF
                 }
 
                 lvHdr.DataBind();
-            }
+            //}
             h.selectAction();
 
         }
@@ -609,11 +609,11 @@ namespace TTF
         protected void DS_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
             e.Command.Parameters["@EventId"].Value = h.EventId;
-            //try
-            //{
-            //    e.Command.Parameters["@FormTypeId"].Value = h.FormTypeId;
-            //}
-            //catch (Exception ex) { }
+            try
+            {
+                e.Command.Parameters["@FormTypeId"].Value = h.FormTypeId;
+            }
+            catch (Exception ex) { }
             try
             {
                 e.Command.Parameters["@NewFormTypeId"].Value = EduNewForm;

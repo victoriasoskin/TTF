@@ -634,7 +634,7 @@ namespace TTF
             }
             h.InsertToDB(h.WpId, lvi, res, str);
             RefreshGraph(h.WpId, h.EventId, sender);
-
+            temp.Text = String.Empty;   //clear the thextbox after saving the support
         }
         //פרה-רנדר לתתי הגרפים של המעקבים
         protected void MiniGraph_PreRender(object sender, EventArgs e)

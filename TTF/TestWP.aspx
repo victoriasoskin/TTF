@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TTFSite.Master" AutoEventWireup="true" CodeBehind="TTbwp.aspx.cs" Inherits="TTF.TTbwp" MaintainScrollPositionOnPostback="true" %>
-    <%-- EnableEventValidation="false" %>--%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TTFSite.Master" AutoEventWireup="true" CodeBehind="TestWP.aspx.cs" Inherits="TTF.TestWP" MaintainScrollPositionOnPostback="true"%>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -76,7 +76,7 @@
         }
         function delweek(x, p) {
             if (confirm('למחוק?')) {
-                var y = parseInt(x / 100000);
+                var y = parseInt(x / 1000000);
                 window.open('delweek.aspx?id=' + y, '_blank');
                 //            __doPostBack('+_+week', 'd|א|' + y);
             }
@@ -91,12 +91,12 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    
     <%--    ---------------------------
         כפתור חזרה, הדפסה, וורד, אקסל למערכת הניהול
         -------------------------- ---%>
 
-    <div style="position: fixed; top: 0px; right: 9px; z-index: 888;">
+    <div style="position: fixed; top: 0px; right: 9px; z-index: 888;background-color:green">
         <asp:Button runat="server" ID="lnkbback" PostBackUrl="~/CustEventReport.Aspx" Text="חזור&nbsp;↻" Font-Bold="true" BorderStyle="Solid" CausesValidation="false" />
         <asp:Button runat="server" ID="HyperLink1" Text="הדפסה " Font-Bold="true" BorderStyle="Solid" OnPreRender="HyperLink1_PreRender" />
         <%-- <asp:HyperLink runat="server" ID="hlprint" Text="הדפסה" CausesValidation="false" OnPreRender="hlprint_PreRender" Target="_blank" />--%>

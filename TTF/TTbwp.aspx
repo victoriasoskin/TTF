@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TTFSite.Master" AutoEventWireup="true" CodeBehind="TTbwp.aspx.cs" Inherits="TTF.TTbwp" MaintainScrollPositionOnPostback="true" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TTFSite.Master" AutoEventWireup="true" CodeBehind="TTbwp.aspx.cs" Inherits="TTF.TTbwp" MaintainScrollPositionOnPostback="true" %>
+    <%-- EnableEventValidation="false" %>--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -15,7 +16,7 @@
         }
 
         .wkshow {
-            position: fixed;   
+            position: fixed;
             top: 120px;
             left: 100px;
             width: 820px;
@@ -46,11 +47,10 @@
             bottom: 0px;
             left: 0px;
         }
-    
     </style>
     <script type="text/javascript">
         //test start
-        
+
         //test end
         $("#HyperLink1").click(function () {
             window.open(this.attr);
@@ -72,12 +72,12 @@
             var z = document.getElementById('<%=divWeeklytimetable.ClientID%>');
             alert("show");
             z.className = 'wkshow';
-            
+
         }
         function delweek(x, p) {
             if (confirm('למחוק?')) {
-                var y = parseInt(x / 100000);
-                window.open('delweek.aspx?id=' + y,'_blank');
+                var y = parseInt(x / 1000000);
+                window.open('delweek.aspx?id=' + y, '_blank');
                 //            __doPostBack('+_+week', 'd|א|' + y);
             }
         }
@@ -95,11 +95,11 @@
     <%--    ---------------------------
         כפתור חזרה, הדפסה, וורד, אקסל למערכת הניהול
         -------------------------- ---%>
-    
+
     <div style="position: fixed; top: 0px; right: 9px; z-index: 888;">
-        <asp:Button runat="server" ID="lnkbback" PostBackUrl="~/CustEventReport.Aspx"  Text="חזור&nbsp;↻" Font-Bold="true" BorderStyle="Solid" CausesValidation="false" />
-        <asp:Button runat="server" ID="HyperLink1" Text="הדפסה " Font-Bold="true" BorderStyle="Solid"   OnPreRender="HyperLink1_PreRender"  />
-       <%-- <asp:HyperLink runat="server" ID="hlprint" Text="הדפסה" CausesValidation="false" OnPreRender="hlprint_PreRender" Target="_blank" />--%>
+        <asp:Button runat="server" ID="lnkbback" PostBackUrl="~/CustEventReport.Aspx" Text="חזור&nbsp;↻" Font-Bold="true" BorderStyle="Solid" CausesValidation="false" />
+        <asp:Button runat="server" ID="HyperLink1" Text="הדפסה " Font-Bold="true" BorderStyle="Solid" OnPreRender="HyperLink1_PreRender" />
+        <%-- <asp:HyperLink runat="server" ID="hlprint" Text="הדפסה" CausesValidation="false" OnPreRender="hlprint_PreRender" Target="_blank" />--%>
     </div>
 
     <%--    ---------------------------
@@ -185,20 +185,20 @@
         תוכנית אב
         -------------------------- ---%>
 
-        <div> 
-            <asp:Button runat="server" ID="lnkbBacktoMainChart" Visible="false" OnClick="backTomainChart_Click" CausesValidation="false" Text="חזרה לגרף הראשי" Style="position: absolute; top: 0px; right: 5px; width:100px; background-color:darkgrey ; font-weight:bold"/>
+        <div>
+            <asp:Button runat="server" ID="lnkbBacktoMainChart" Visible="false" OnClick="backTomainChart_Click" CausesValidation="false" Text="חזרה לגרף הראשי" Style="position: absolute; top: 0px; right: 5px; width: 100px; background-color: darkgrey; font-weight: bold" />
             <asp:Chart ID="Chart1" runat="server" Width="940px" Height="500px" DataSourceID="DSGRAPH" BorderlineColor="#A5C3DE" BorderlineWidth="2" BackColor="#A5C3DE" OnPrePaint="chrt_OnPrePaint" OnClick="chrt_Drill">
                 <Titles>
                     <asp:Title Text="תוצאות כלי לניהול תמיכות" Font="Arial, 18pt, style=Bold, Italic">
                     </asp:Title>
                 </Titles>
                 <Series>
-                    <asp:Series Name="Series1" ChartType="column" XValueMember="Grp" YValueMembers="perc" BorderWidth="3" IsValueShownAsLabel="true"  LabelFormat="{0:0.00}" Color="DarkBlue" PostBackValue="#VALX">
+                    <asp:Series Name="Series1" ChartType="column" XValueMember="Grp" YValueMembers="perc" BorderWidth="3" IsValueShownAsLabel="true" LabelFormat="{0:0.00}" Color="DarkBlue" PostBackValue="#VALX">
                     </asp:Series>
                 </Series>
                 <ChartAreas>
                     <asp:ChartArea Name="ChartArea1">
-                        <AxisX IsReversed="true" interval="1">
+                        <AxisX IsReversed="true" Interval="1">
                             <MajorGrid Enabled="false" />
 
                         </AxisX>
@@ -213,10 +213,11 @@
 
         <asp:ListView runat="server" ID="lvWP" DataSourceID="DSWP" OnItemEditing="lv_ItemEditing" OnItemCanceling="lv_ItemCanceling" InsertItemPosition="FirstItem" OnLoad="lvWP_Load" OnPreRender="lvWP_PreRender" OnItemDeleting="lvWP_ItemDeleting">
             <LayoutTemplate>
-                <table runat="server" id="itemPlaceholderContainer" class="ptbl" >
+                <table runat="server" id="itemPlaceholderContainer" class="ptbl">
                     <thead>
                         <tr>
-                            <td colspan="5" style="font-weight: bold; font-size: medium; text-align: center; background-color: #74a3e6; color: black; font-weight:bold; font-style:italic;font-size:x-large"> בניית תוכנית תמיכות
+                            <td colspan="5" style="font-weight: bold; font-size: medium; text-align: center; background-color: #74a3e6; color: black; font-weight: bold; font-style: italic; font-size: x-large">בניית תוכנית תמיכות
+                               
                                 <asp:Button runat="server" ID="lnkbShowAdd" Text="הוספת תמיכה חדשה" CssClass="btns" ForeColor="black" OnPreRender="lnkbShowAdd_PreRender" Font-Bold="true" OnClick="lnkbShowAdd_Click"></asp:Button>
                             </td>
                         </tr>
@@ -230,12 +231,12 @@
             תוכנית תמיכות תצוגה
             -------------------------- ---%>
 
-            <ItemTemplate >
-               
-                <tr class="phdr" >
+            <ItemTemplate>
+
+                <tr class="phdr">
                     <td colspan="2">תמיכה מספר <%#Eval("Ln") %>
-                        <asp:Label runat="server" ID="TT_Creation_Date" > :תאריך פתיחה  <%#Eval("LoadTime","{0:dd/MM/yyyy}") %></asp:Label>
-                        <asp:Button runat="server" ID="lnkbEdit" Text="עריכה"  Font-Bold="true" CssClass="btns" CommandName="edit" CausesValidation="false" Visible='<%#isUpdatable() %>'></asp:Button>
+                        <asp:Label runat="server" ID="TT_Creation_Date"> :תאריך פתיחה  <%#Eval("LoadTime","{0:dd/MM/yyyy}") %></asp:Label>
+                        <asp:Button runat="server" ID="lnkbEdit" Text="עריכה" Font-Bold="true" CssClass="btns" CommandName="edit" CausesValidation="false" Visible='<%#isUpdatable() %>'></asp:Button>
                         <asp:Button runat="server" ID="lnkbDelete" Text="מחיקה" Font-Bold="true" CssClass="btns" OnClientClick="return confirm('האם למחוק?');" CausesValidation="false" CommandName="delete" Visible='<%#isUpdatable() %>'></asp:Button>
                         <asp:HiddenField runat="server" ID="hdnWPId" Value='<%#Eval("Id") %>' />
                     </td>
@@ -244,22 +245,21 @@
                     <td>
                         <table class="ptbl">
                             <tr>
-                                <td class="rowHeader" style="width: 50px;">תחום
-                                </td>
-                                <td class="rowsColor">
-                                    <%#Eval("Range") %>
-                                </td>
                                 <tr>
-                                    <td class="rowHeader" style="width: 50px;">נושא
-                                    </td>
+                                    <td class="rowHeader" style="width: 50px;">תחום</td>
+                                    <td class="rowsColor">
+                                        <%#Eval("Range") %>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td class="rowHeader" style="width: 50px;">נושא</td>
                                     <td class="rowsColor">
                                         <%#Eval("Subject") %>
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class="rowHeader" rowspan="2">מטרת על
-                                    </td>
+                                    <td class="rowHeader" rowspan="2">מטרת על</td>
                                     <td class="rowsColor">
                                         <%#Eval("Purpose") %>
                                     </td>
@@ -313,7 +313,7 @@
                 </tr>
                 <tr>
                     <td>
-             
+
 
                         <asp:ListView runat="server" ID="dlDetails" OnPreRender="dlDetails_PreRender">
                             <LayoutTemplate>
@@ -337,7 +337,8 @@
                                     <td class="rowsColor"><%#(Eval("Amount").ToString().Trim() == "1" ? "פעם" : (Eval("Amount").ToString().Trim() == "2"? "פעמיים" : Eval("Amount") + " פעמים")) %><br />
                                         <%#"ב" + Eval("Frequency") %></td>
                                     <td class="rowsColor"><%#Eval("length") %></td>
-                                    <td class="rowsColor"><%#Eval("Helper") %> <br />
+                                    <td class="rowsColor"><%#Eval("Helper") %>
+                                        <br />
                                         <a href='<%# string.Format("javascript:OpenPopUP({0});", Eval("Id")) %>'>הוסף לשבוע</a>
                                     </td>
                                 </tr>
@@ -347,17 +348,17 @@
                 </tr>
                 <tr style="width: 100%; height: 20px; background-color: #A5C3DE;">
                     <td>
-                        <input type="button" id="showWeekBTN"  value="הצגת תוכנית שבועית" style="color:black ; font-weight:bold; background-color: lightgray " onclick="showweek();"/>
+                        <input type="button" id="showWeekBTN" value="הצגת תוכנית שבועית" style="color: black; font-weight: bold; background-color: lightgray" onclick="showweek();" />
                         <%--<a href="javascript:showweek();" style="color: black; font-weight:bold">הצגת תוכנית שבועית</a>--%>
                     </td>
                 </tr>
-                     
+
             </ItemTemplate>
             <AlternatingItemTemplate>
                 <tr class="phdrAlternate">
                     <td colspan="2">תמיכה מספר <%#Eval("Ln") %>
-                        <asp:Label runat="server" ID="TT_Creation_Date" > :תאריך פתיחה  <%#Eval("LoadTime","{0:dd/MM/yyyy}") %></asp:Label>
-                        <asp:Button runat="server" ID="lnkbEdit" Text="עריכה"  Font-Bold="true" CssClass="btns" CommandName="edit" CausesValidation="false" Visible='<%#isUpdatable() %>'></asp:Button>
+                        <asp:Label runat="server" ID="TT_Creation_Date"> :תאריך פתיחה  <%#Eval("LoadTime","{0:dd/MM/yyyy}") %></asp:Label>
+                        <asp:Button runat="server" ID="lnkbEdit" Text="עריכה" Font-Bold="true" CssClass="btns" CommandName="edit" CausesValidation="false" Visible='<%#isUpdatable() %>'></asp:Button>
                         <asp:Button runat="server" ID="lnkbDelete" Text="מחיקה" Font-Bold="true" CssClass="btns" OnClientClick="return confirm('האם למחוק?');" CausesValidation="false" CommandName="delete" Visible='<%#isUpdatable() %>'></asp:Button>
                         <asp:HiddenField runat="server" ID="hdnWPId" Value='<%#Eval("Id") %>' />
                     </td>
@@ -366,11 +367,13 @@
                     <td>
                         <table class="ptblAlternate">
                             <tr>
-                                <td class="rowHeaderAlternate" style="width: 50px;">תחום
+                                <tr>
+                                    <td class="rowHeaderAlternate" style="width: 50px;">תחום
                                 </td>
-                                <td class="rowsColorAlternate">
-                                    <%#Eval("Range") %>
+                                    <td class="rowsColorAlternate">
+                                        <%#Eval("Range") %>
                                 </td>
+                                </tr>
                                 <tr>
                                     <td class="rowHeaderAlternate" style="width: 50px;">נושא
                                     </td>
@@ -435,7 +438,7 @@
                 </tr>
                 <tr>
                     <td>
-             
+
 
                         <asp:ListView runat="server" ID="dlDetails" OnPreRender="dlDetails_PreRender">
                             <LayoutTemplate>
@@ -459,7 +462,8 @@
                                     <td class="rowsColorAlternate"><%#(Eval("Amount").ToString().Trim() == "1" ? "פעם" : (Eval("Amount").ToString().Trim() == "2"? "פעמיים" : Eval("Amount") + " פעמים")) %><br />
                                         <%#"ב" + Eval("Frequency") %></td>
                                     <td class="rowsColorAlternate"><%#Eval("length") %></td>
-                                    <td class="rowsColorAlternate"><%#Eval("Helper") %> <br />
+                                    <td class="rowsColorAlternate"><%#Eval("Helper") %>
+                                        <br />
                                         <a href='<%# string.Format("javascript:OpenPopUP({0});", Eval("Id")) %>'>הוסף לשבוע</a>
                                     </td>
                                 </tr>
@@ -472,7 +476,8 @@
                     </td>
                 </tr>
                 <tr style="width: 100%; height: 20px; background-color: #8FDCF1;">
-                    <td><input type="button" id="showWeekBTN"  value="הצגת תוכנית שבועית" style="color:black ; font-weight:bold; background-color: lightgray " onclick="showweek();"/>
+                    <td>
+                        <input type="button" id="showWeekBTN" value="הצגת תוכנית שבועית" style="color: black; font-weight: bold; background-color: lightgray" onclick="showweek();" />
                     </td>
                 </tr>
 
@@ -484,10 +489,11 @@
             <InsertItemTemplate>
                 <tr>
                     <td colspan="5" class="NewSuppPhdr">תמיכה חדשה
+                       
                         <asp:Button runat="server" ID="lnkbSaveNClose" Text="שמירה וסגירה" CssClass="btns" OnClick="lnkbWP_Click"></asp:Button>
                         <asp:Button runat="server" ID="lnkbSave" Text="שמירה והוספת פירוט" CssClass="btns" OnClick="lnkbWP_Click"></asp:Button>
-<%--                        <asp:Button runat="server" ID="lnkbCancel" Text="ביטול" CssClass="btns" CommandName="cancel" OnClick="lnkbCancel_Click" CausesValidation="false" />--%>
-                      <asp:Button runat="server" ID="lnkbCancel" Text="ביטול" CssClass="btns" CommandName="cancel" OnClick="lnkbCancel_Click" CausesValidation="false"></asp:Button>
+                        <%--                        <asp:Button runat="server" ID="lnkbCancel" Text="ביטול" CssClass="btns" CommandName="cancel" OnClick="lnkbCancel_Click" CausesValidation="false" />--%>
+                        <asp:Button runat="server" ID="lnkbCancel" Text="ביטול" CssClass="btns" CommandName="cancel" OnClick="lnkbCancel_Click" CausesValidation="false"></asp:Button>
                         <asp:HiddenField runat="server" ID="hdnWPId" Value='<%#Eval("Id") %>' />
                     </td>
                 </tr>
@@ -511,17 +517,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="NewTTLable" rowspan="2">מטרת על
-                                    </td>
-                                    <td>
-                                        <asp:DropDownList runat="server" ID="ddlPurpose" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" Width="150" OnPreRender="ddl_PreRender">
-                                        </asp:DropDownList>
-                                        <asp:RequiredFieldValidator runat="server" ID="rfvPurpose" ControlToValidate="ddlPurpose" ErrorMessage="יש לבחור במטרה" ForeColor="Red" Display="Dynamic" />
-
-                                        <br />
-                                        <asp:TextBox runat="server" ID="tbPurpose" Columns="50" MaxLength="50" Style="display: none;" OnPreRender="tbOther_PreRender" />
-                                        <%--                                       <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ControlToValidate="tbPurpose" ErrorMessage="כאשר בוחרים ב 'אחר (...)' יש להקליד מטרה" ForeColor="Red" Display="Dynamic" />--%>
-
+                                    <td class="NewTTLable" rowspan="2">מטרת על</td>
+                                    <td>                                       
+                                            <asp:DropDownList runat="server" ID="ddlPurpose" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged" Width="150" OnPreRender="ddl_PreRender" OnDataBinding="ddl_DataBinding"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator runat="server" ID="rfvPurpose" ControlToValidate="ddlPurpose" ErrorMessage="יש לבחור במטרה" ForeColor="Red" Display="Dynamic" />
+                                            <br />
+                                            <asp:TextBox runat="server" ID="tbPurpose" Columns="50" MaxLength="50" Style="display: none;" OnPreRender="tbOther_PreRender" />
+                                        <%--<asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ControlToValidate="tbPurpose" ErrorMessage="כאשר בוחרים ב 'אחר (...)' יש להקליד מטרה" ForeColor="Red" Display="Dynamic" />--%>
                                     </td>
                                 </tr>
                                 <tr>
@@ -531,14 +533,15 @@
                                         <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ControlToValidate="ddlTarget" ErrorMessage="יש לבחור ביעד" ForeColor="Red" Display="Dynamic" />
                                     </td>
                                 </tr>
-                            </tr>
-                            <tr>
-                                <td class="NewTTLable" style="width: 50px;">דרגת חשיבות</td>
-                                <td  style="padding-right: 5px;">
-                                    <asp:DropDownList runat="server" ID="ddlWeight" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" Width="150" OnPreRender="ddl_PreRender">
-                                    </asp:DropDownList><br />
-                                    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ControlToValidate="ddlWeight" ErrorMessage="יש לבחור בדרגת חשיבות" ForeColor="Red" Display="Dynamic" />
-                                </td>
+                                <%-- </tr>--%>
+                                <tr>
+                                    <td class="NewTTLable" style="width: 50px;">דרגת חשיבות</td>
+                                    <td style="padding-right: 5px;">
+                                        <asp:DropDownList runat="server" ID="ddlWeight" AppendDataBoundItems="true" AutoPostBack="true" OnDataBinding="ddl_DataBinding" Width="150" OnPreRender="ddl_PreRender">
+                                        </asp:DropDownList><br />
+                                        <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ControlToValidate="ddlWeight" ErrorMessage="יש לבחור בדרגת חשיבות" ForeColor="Red" Display="Dynamic" />
+                                    </td>
+                                </tr>
                             </tr>
                         </table>
                     </td>
@@ -552,17 +555,19 @@
                         <%--אינדקיסים בתוך הוספת תמיכה--%>
                         <table class="ptbl" id="indexTbl" runat="server">
 
-                            <tr> <%--'+2'--%>
+                            <tr>
+                                <%--'+2'--%>
                                 <td class="NewTTLable" style="width: 50px;">
                                     <asp:Label runat="server" ID="lblNumIndexp2" Text="+2"></asp:Label></td>
-                                <td style="padding-right: 5px;"  class="editbck">
+                                <td style="padding-right: 5px;" class="editbck">
                                     <asp:TextBox runat="server" ID="tbTxtIndexm2" MaxLength="150" onkeypress="if (this.value.length==150) alert('לא ניתן להקליד עוד')"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="שדה חובה" ControlToValidate="tbTxtIndexm2" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
 
-                            <tr ><%-- '+1'--%>
-                                <td  class="NewTTLable" style="width: 50px;">
+                            <tr>
+                                <%-- '+1'--%>
+                                <td class="NewTTLable" style="width: 50px;">
                                     <asp:Label runat="server" ID="lblNumIndexp1" Text="+1"></asp:Label></td>
                                 <td style="padding-right: 5px;" class="editbck">
                                     <asp:TextBox runat="server" ID="tbTxtIndexm1" MaxLength="150" onkeypress="if (this.value.length==150) alert('לא ניתן להקליד עוד')"></asp:TextBox>
@@ -571,30 +576,33 @@
                                 </td>
                             </tr>
 
-                            <tr ><%--0--%>
+                            <tr>
+                                <%--0--%>
                                 <td class="NewTTLable" style="width: 50px;" id="td_shimur_lable" runat="server">
                                     <asp:Label runat="server" ID="lblNumIndex00" Text="0"></asp:Label></td>
-                                <td style="padding-right: 5px;" id="td_shimur" >
+                                <td style="padding-right: 5px;" id="td_shimur">
                                     <asp:TextBox runat="server" ID="tbTxtIndex00" MaxLength="150" onkeypress="if (this.value.length==150) alert('לא ניתן להקליד עוד')"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="שדה חובה" ControlToValidate="tbTxtIndex00" ForeColor="Red"></asp:RequiredFieldValidator>
 
                                 </td>
                             </tr>
 
-                            <tr ><%--'-1'--%>
-                                <td class="NewTTLable" style="width: 50px;"  id="td_shipur_label" runat="server">
+                            <tr>
+                                <%--'-1'--%>
+                                <td class="NewTTLable" style="width: 50px;" id="td_shipur_label" runat="server">
                                     <asp:Label runat="server" ID="lblNumIndexm1" Text="-1"></asp:Label></td>
-                                <td style="padding-right: 5px;"  id="td_shipur"  >
+                                <td style="padding-right: 5px;" id="td_shipur">
                                     <asp:TextBox runat="server" ID="tbTxtIndexp1" MaxLength="150" onkeypress="if (this.value.length==150) alert('לא ניתן להקליד עוד')"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="שדה חובה" ControlToValidate="tbTxtIndexp1" ForeColor="Red"></asp:RequiredFieldValidator>
 
                                 </td>
                             </tr>
 
-                            <tr > <%-- '-2'--%>
+                            <tr>
+                                <%-- '-2'--%>
                                 <td class="NewTTLable" style="width: 50px;">
                                     <asp:Label runat="server" ID="lblNumIndexm2" Text="-2"></asp:Label></td>
-                                <td style="padding-right: 5px;"  class="editbck">
+                                <td style="padding-right: 5px;" class="editbck">
                                     <asp:TextBox runat="server" ID="tbTxtIndexp2" MaxLength="150" onkeypress="if (this.value.length==150) alert('לא ניתן להקליד עוד')"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="שדה חובה" ControlToValidate="tbTxtIndexp2" ForeColor="Red"></asp:RequiredFieldValidator>
 
@@ -649,33 +657,33 @@
                             <InsertItemTemplate>
                                 <tr style="vertical-align: top;" class="editbck">
                                     <td style="">
-                                        <asp:TextBox runat="server" ValidationGroup="insertDetailsInInsert" ID="tbDetails" MaxLength="350" TextMode="MultiLine" Rows="4" Columns="49"  onkeyup="if (this.value.length==350) alert('לא ניתן להקליד עוד')" />
+                                        <asp:TextBox runat="server" ValidationGroup="insertDetailsInInsert" ID="tbDetails" MaxLength="350" TextMode="MultiLine" Rows="4" Columns="49" onkeyup="if (this.value.length==350) alert('לא ניתן להקליד עוד')" />
                                         <asp:RegularExpressionValidator ValidationGroup="insertDetailsInInsert" ID="RegularExpressionValidator1" runat="server" ForeColor="Red" ControlToValidate="tbDetails" ValidationExpression="^[\s\S]{0,350}$" ErrorMessage="טקסט ארוך מדי"></asp:RegularExpressionValidator>
                                     </td>
                                     <td>
                                         <asp:DropDownList runat="server" ID="ddlPeriod" ValidationGroup="insertDetailsInInsert" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" Width="90" OnPreRender="ddl_PreRender"></asp:DropDownList>
-                                        <asp:TextBox runat="server" ID="tbPeriod" Width="85" ValidationGroup="insertDetailsInInsert" MaxLength="20" TextMode="MultiLine" Style="display: none;" OnPreRender="tbOther_PreRender" onkeypress="if (this.value.length==20) alert('לא ניתן להקליד עוד')"/>
-                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator7" ValidationGroup="insertDetailsInInsert" runat="server" ForeColor="Red" ControlToValidate="ddlPeriod"  ErrorMessage="חובה לעדכן את כל השדות"></asp:RequiredFieldValidator>                                   
+                                        <asp:TextBox runat="server" ID="tbPeriod" Width="85" ValidationGroup="insertDetailsInInsert" MaxLength="20" TextMode="MultiLine" Style="display: none;" OnPreRender="tbOther_PreRender" onkeypress="if (this.value.length==20) alert('לא ניתן להקליד עוד')" />
+                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator7" ValidationGroup="insertDetailsInInsert" runat="server" ForeColor="Red" ControlToValidate="ddlPeriod" ErrorMessage="חובה לעדכן את כל השדות"></asp:RequiredFieldValidator>
                                     </td>
                                     <td>
                                         <asp:DropDownList runat="server" ID="ddlFrequesncy_1" ValidationGroup="insertDetailsInInsert" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
                                         </asp:DropDownList><br />
-                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator8" ValidationGroup="insertDetailsInInsert" runat="server" ForeColor="Red" ControlToValidate="ddlFrequesncy_1"  ErrorMessage="חובה לעדכן את כל השדות"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator8" ValidationGroup="insertDetailsInInsert" runat="server" ForeColor="Red" ControlToValidate="ddlFrequesncy_1" ErrorMessage="חובה לעדכן את כל השדות"></asp:RequiredFieldValidator>
                                         <asp:DropDownList runat="server" ID="ddlFrequesncy_2" ValidationGroup="insertDetailsInInsert" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
                                         </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator9" ValidationGroup="insertDetailsInInsert" runat="server" ForeColor="Red" ControlToValidate="ddlFrequesncy_2"  ErrorMessage="חובה לעדכן את כל השדות"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator9" ValidationGroup="insertDetailsInInsert" runat="server" ForeColor="Red" ControlToValidate="ddlFrequesncy_2" ErrorMessage="חובה לעדכן את כל השדות"></asp:RequiredFieldValidator>
                                     </td>
                                     <td>
                                         <asp:DropDownList runat="server" ID="ddlLasting" ValidationGroup="insertDetailsInInsert" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
                                         </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator10" ValidationGroup="insertDetailsInInsert" runat="server" ForeColor="Red" ControlToValidate="ddlLasting"  ErrorMessage="חובה לעדכן את כל השדות"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator10" ValidationGroup="insertDetailsInInsert" runat="server" ForeColor="Red" ControlToValidate="ddlLasting" ErrorMessage="חובה לעדכן את כל השדות"></asp:RequiredFieldValidator>
                                     </td>
                                     <td>
                                         <asp:DropDownList runat="server" ID="ddlHelper" ValidationGroup="insertDetailsInInsert" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
                                         </asp:DropDownList>
                                         <br />
-                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator11" ValidationGroup="insertDetailsInInsert" runat="server" ForeColor="Red" ControlToValidate="ddlHelper"  ErrorMessage="חובה לעדכן את כל השדות"></asp:RequiredFieldValidator>
-                                        <asp:TextBox runat="server" ValidationGroup="insertDetailsInInsert" ID="tbHelper"  Width="85" MaxLength="20" Style="display: none;" TextMode="MultiLine" OnPreRender="tbOther_PreRender" onkeypress="if (this.value.length==20) alert('לא ניתן להקליד עוד')" /></td>
+                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator11" ValidationGroup="insertDetailsInInsert" runat="server" ForeColor="Red" ControlToValidate="ddlHelper" ErrorMessage="חובה לעדכן את כל השדות"></asp:RequiredFieldValidator>
+                                        <asp:TextBox runat="server" ValidationGroup="insertDetailsInInsert" ID="tbHelper" Width="85" MaxLength="20" Style="display: none;" TextMode="MultiLine" OnPreRender="tbOther_PreRender" onkeypress="if (this.value.length==20) alert('לא ניתן להקליד עוד')" /></td>
                                     <td style="white-space: nowrap;">
                                         <asp:Button runat="server" ValidationGroup="insertDetailsInInsert" ID="lnkbSave" Text="שמירה" CssClass="btns" CommandName="insert"></asp:Button>
                                         <asp:Button runat="server" ValidationGroup="insertDetailsInInsert" ID="lnkbCancel" Text="ביטול" CssClass="btns" OnClick="lnkbCancel_Click" CausesValidation="false"></asp:Button></td>
@@ -687,21 +695,23 @@
                             <EditItemTemplate>
                                 <tr style="vertical-align: top;" class="editbck">
                                     <td style="">
-                                        <asp:HiddenField runat="server" ID="hdnId" Value='<%#Eval("Id") %>' /> 
-                                       
-                                         <asp:TextBox runat="server" ID="tbDetails" MaxLength="150" TextMode="MultiLine" Rows="4" Columns="49" Text='<%#Eval("Text") %>'  onkeyup="if (this.value.length==350) alert('לא ניתן להקליד עוד')"/>
-                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbDetails" ValidationExpression="^[\s\S]{0,350}$" ErrorMessage="טקסט ארוך מדי"></asp:RegularExpressionValidator>
+                                        <asp:HiddenField runat="server" ID="hdnId" Value='<%#Eval("Id") %>' />
+
+                                        <asp:TextBox runat="server" ID="tbDetails" MaxLength="150" TextMode="MultiLine" Rows="4" Columns="49" Text='<%#Eval("Text") %>' onkeyup="if (this.value.length==350) alert('לא ניתן להקליד עוד')" />
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="tbDetails" ValidationExpression="^[\s\S]{0,350}$" ErrorMessage="טקסט ארוך מדי"></asp:RegularExpressionValidator>
 
                                     </td>
                                     <td>
                                         <asp:DropDownList runat="server" ID="ddlPeriod" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" Width="90" OnPreRender="ddl_PreRender" SelectedValue='<%#Eval("PeriodId") %>'></asp:DropDownList>
-                                        <asp:TextBox runat="server" ID="tbPeriod" Width="85" MaxLength="40" TextMode="MultiLine" Text='<%#Eval("PeriodText") %>' Style="display: none;" OnPreRender="tbOther_PreRender" onkeypress="if (this.value.length==40) alert('לא ניתן להקליד עוד')"/>
+                                        <asp:TextBox runat="server" ID="tbPeriod" Width="85" MaxLength="40" TextMode="MultiLine" Text='<%#Eval("PeriodText") %>' Style="display: none;" OnPreRender="tbOther_PreRender" onkeypress="if (this.value.length==40) alert('לא ניתן להקליד עוד')" />
                                     </td>
                                     <td>
-                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_1" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90" > <%--SelectedValue='<%#Eval("AmountId") %>'>--%>
+                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_1" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
+                                            <%--SelectedValue='<%#Eval("AmountId") %>'>--%>
                                         </asp:DropDownList><br />
                                         <asp:HiddenField runat="server" ID="hdnFrequesncy_1" Value='<%#Eval("AmountId") %>' />
-                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_2" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90"> <%--SelectedValue='<%#Eval("FrequencyId") %>'>--%>
+                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_2" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
+                                            <%--SelectedValue='<%#Eval("FrequencyId") %>'>--%>
                                         </asp:DropDownList>
                                         <asp:HiddenField runat="server" ID="hdnFrequesncy_2" Value='<%#Eval("FrequencyId") %>' />
                                     </td>
@@ -709,12 +719,13 @@
                                         <asp:DropDownList runat="server" ID="ddlLasting" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90" SelectedValue='<%#Eval("LengthId") %>'>
                                         </asp:DropDownList></td>
                                     <td>
-                                        <asp:DropDownList runat="server" ID="ddlHelper" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90"> <%--SelectedValue='<%#Eval("HelperId") %>'>--%>
+                                        <asp:DropDownList runat="server" ID="ddlHelper" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
+                                            <%--SelectedValue='<%#Eval("HelperId") %>'>--%>
                                         </asp:DropDownList>
                                         <br />
                                         <asp:HiddenField runat="server" ID="hdnddlHelper" Value='<%#Eval("HelperId") %>' />
                                         <asp:TextBox runat="server" ID="tbHelper" Width="85" MaxLength="40" Style="display: none;" TextMode="MultiLine" Text='<%#Eval("HelperText") %>' OnPreRender="tbOther_PreRender" /></td>
-                                         <asp:HiddenField runat="server" ID="hdntbHelper" Value='<%#Eval("HelperText") %>' />
+                                    <asp:HiddenField runat="server" ID="hdntbHelper" Value='<%#Eval("HelperText") %>' />
                                     <td style="white-space: nowrap;">
                                         <asp:Button runat="server" ID="lnkbSave" Text="שמירה" CssClass="btns" CommandName="update"></asp:Button>
 
@@ -736,54 +747,54 @@
             <EditItemTemplate>
                 <tr>
                     <td colspan="5" class="pEhdr">עריכת תמיכה מספר <%#Eval("Ln") %>
-                      <asp:Button runat="server" ID="lnkbSaveClose" Text="שמירה וסגירה" CommandName="Cancel" CssClass="btns"></asp:Button>
+                        <asp:Button runat="server" ID="lnkbSaveClose" Text="שמירה וסגירה" CommandName="Cancel" CssClass="btns"></asp:Button>
                         <asp:Button runat="server" ID="lnkbSave" Text="שמירה" CssClass="btns"></asp:Button>
                         <asp:Button runat="server" ID="lnkbCancel" Text="ביטול" CssClass="btns" CommandName="cancel" CausesValidation="false"></asp:Button></td>
                 </tr>
                 <asp:HiddenField runat="server" ID="hdnWPId" Value='<%#Eval("Id") %>' />
                 </td>
                 </tr>
+                               
+                <tr>
+                    <td>
+                        <table class="editPtbl">
+                            <tr>
+                                <td class="EditrowHeader" style="width: 50px;">תחום
+                                                </td>
+                                <td>
+                                    <%#Eval("Range") %>
+                                                </td>
+                                <tr>
+                                    <td class="EditrowHeader" style="width: 50px;">נושא
+                                                    </td>
+                                    <td>
+                                        <%#Eval("Subject") %>
+                                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="EditrowHeader" rowspan="2">מטרת על
+                                                    </td>
+                                    <td>
+                                        <%#Eval("Purpose") %>
+                                                    </td>
+                                </tr>
                                 <tr>
                                     <td>
-                                        <table class="editPtbl">
-                                            <tr>
-                                                <td class="EditrowHeader" style="width: 50px;">תחום
-                                                </td>
-                                                <td>
-                                                    <%#Eval("Range") %>
-                                                </td>
-                                                <tr>
-                                                    <td class="EditrowHeader" style="width: 50px;">נושא
+                                        <asp:HiddenField runat="server" ID="hdnTargetId" Value='<%#Eval("TargetId") %>' />
+                                        <%#Eval("Target") %>
                                                     </td>
-                                                    <td>
-                                                        <%#Eval("Subject") %>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="EditrowHeader" rowspan="2">מטרת על
-                                                    </td>
-                                                    <td>
-                                                        <%#Eval("Purpose") %>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <asp:HiddenField runat="server" ID="hdnTargetId" Value='<%#Eval("TargetId") %>' />
-                                                        <%#Eval("Target") %>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="EditrowHeader" style="width: 50px;">דרגת חשיבות
-                                                    </td>
-                                                    <td>
-                                                        <%#Eval("Weight") %>
-                                                    </td>
-                                                </tr>
-                                            </tr>
-                                        </table>
-                                    </td>
                                 </tr>
+                                <tr>
+                                    <td class="EditrowHeader" style="width: 50px;">דרגת חשיבות
+                                                    </td>
+                                    <td>
+                                        <%#Eval("Weight") %>
+                                                    </td>
+                                </tr>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
 
                 <tr class="EditpEsubhdr">
                     <td>פרטי התוכנית</td>
@@ -828,35 +839,35 @@
                                 <tr style="vertical-align: top;">
                                     <td style="">
                                         <asp:TextBox runat="server" ValidationGroup="insertDetails" ID="tbDetails" MaxLength="350" TextMode="MultiLine" Rows="4" Columns="49" onkeyup="if (this.value.length==350) alert('לא ניתן להקליד עוד')" />
-                                        <asp:RegularExpressionValidator  ValidationGroup="insertDetails" ID="RegularExpressionValidator1" runat="server" ForeColor="Red" ControlToValidate="tbDetails" ValidationExpression="^[\s\S]{0,350}$" ErrorMessage="טקסט ארוך מדי"></asp:RegularExpressionValidator>
+                                        <asp:RegularExpressionValidator ValidationGroup="insertDetails" ID="RegularExpressionValidator1" runat="server" ForeColor="Red" ControlToValidate="tbDetails" ValidationExpression="^[\s\S]{0,350}$" ErrorMessage="טקסט ארוך מדי"></asp:RegularExpressionValidator>
                                     </td>
                                     <td>
-                                        <asp:DropDownList runat="server" ID="ddlPeriod"  ValidationGroup="insertDetails" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator2"  ValidationGroup="insertDetails" runat="server" ForeColor="Red" ControlToValidate="ddlPeriod"  ErrorMessage="חובה למלא את כל השדות"></asp:RequiredFieldValidator>                                       
-                                        <asp:TextBox runat="server" ID="tbPeriod" Width="85"  ValidationGroup="insertDetails" MaxLength="40" Style="display: none;" TextMode="MultiLine" OnPreRender="tbOther_PreRender" /></td>
+                                        <asp:DropDownList runat="server" ID="ddlPeriod" ValidationGroup="insertDetails" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90"></asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator2" ValidationGroup="insertDetails" runat="server" ForeColor="Red" ControlToValidate="ddlPeriod" ErrorMessage="חובה למלא את כל השדות"></asp:RequiredFieldValidator>
+                                        <asp:TextBox runat="server" ID="tbPeriod" Width="85" ValidationGroup="insertDetails" MaxLength="40" Style="display: none;" TextMode="MultiLine" OnPreRender="tbOther_PreRender" /></td>
                                     <td>
-                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_1"  ValidationGroup="insertDetails" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
+                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_1" ValidationGroup="insertDetails" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
                                         </asp:DropDownList><br />
-                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator3"  ValidationGroup="insertDetails" runat="server" ForeColor="Red" ControlToValidate="ddlFrequesncy_1"  ErrorMessage="חובה למלא את כל השדות"></asp:RequiredFieldValidator>                                       
+                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator3" ValidationGroup="insertDetails" runat="server" ForeColor="Red" ControlToValidate="ddlFrequesncy_1" ErrorMessage="חובה למלא את כל השדות"></asp:RequiredFieldValidator>
 
-                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_2"  ValidationGroup="insertDetails" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
+                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_2" ValidationGroup="insertDetails" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
                                         </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator4" runat="server"  ValidationGroup="insertDetails" ForeColor="Red" ControlToValidate="ddlFrequesncy_1"  ErrorMessage="חובה למלא את כל השדות"></asp:RequiredFieldValidator>                                       
+                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator4" runat="server" ValidationGroup="insertDetails" ForeColor="Red" ControlToValidate="ddlFrequesncy_1" ErrorMessage="חובה למלא את כל השדות"></asp:RequiredFieldValidator>
                                     </td>
                                     <td>
-                                        <asp:DropDownList runat="server" ID="ddlLasting" AppendDataBoundItems="true"  ValidationGroup="insertDetails" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
+                                        <asp:DropDownList runat="server" ID="ddlLasting" AppendDataBoundItems="true" ValidationGroup="insertDetails" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
                                         </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator5"  ValidationGroup="insertDetails" runat="server" ForeColor="Red" ControlToValidate="ddlLasting"  ErrorMessage="חובה למלא את כל השדות"></asp:RequiredFieldValidator>                                       
+                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator5" ValidationGroup="insertDetails" runat="server" ForeColor="Red" ControlToValidate="ddlLasting" ErrorMessage="חובה למלא את כל השדות"></asp:RequiredFieldValidator>
                                     </td>
                                     <td>
-                                        <asp:DropDownList runat="server" ID="ddlHelper" AppendDataBoundItems="true"  ValidationGroup="insertDetails" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
+                                        <asp:DropDownList runat="server" ID="ddlHelper" AppendDataBoundItems="true" ValidationGroup="insertDetails" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
                                         </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator6" runat="server"  ValidationGroup="insertDetails" ForeColor="Red" ControlToValidate="ddlHelper"  ErrorMessage="חובה למלא את כל השדות"></asp:RequiredFieldValidator>                                       
+                                        <asp:RequiredFieldValidator ID="RegularExpressionValidator6" runat="server" ValidationGroup="insertDetails" ForeColor="Red" ControlToValidate="ddlHelper" ErrorMessage="חובה למלא את כל השדות"></asp:RequiredFieldValidator>
                                         <br />
-                                        <asp:TextBox runat="server" ID="tbHelper" Width="85" MaxLength="40" Style="display: none;"  ValidationGroup="insertDetails" TextMode="MultiLine" OnPreRender="tbOther_PreRender" onkeypress="if (this.value.length==350) alert('לא ניתן להקליד עוד')"/></td>
+                                        <asp:TextBox runat="server" ID="tbHelper" Width="85" MaxLength="40" Style="display: none;" ValidationGroup="insertDetails" TextMode="MultiLine" OnPreRender="tbOther_PreRender" onkeypress="if (this.value.length==350) alert('לא ניתן להקליד עוד')" /></td>
                                     <td style="white-space: nowrap;">
-                                        <asp:Button runat="server" ID="lnkbSave" Text="שמירה" CssClass="btns" OnClick=" InsertDetails"  ValidationGroup="insertDetails"></asp:Button>
-                                        <asp:Button runat="server" ID="lnkbCancel" Text="ביטול" CssClass="btns" OnClick="lnkbCancel_Click"  ValidationGroup="insertDetails" CausesValidation="false"></asp:Button></td>
+                                        <asp:Button runat="server" ID="lnkbSave" Text="שמירה" CssClass="btns" OnClick=" InsertDetails" ValidationGroup="insertDetails"></asp:Button>
+                                        <asp:Button runat="server" ID="lnkbCancel" Text="ביטול" CssClass="btns" OnClick="lnkbCancel_Click" ValidationGroup="insertDetails" CausesValidation="false"></asp:Button></td>
                                 </tr>
                             </InsertItemTemplate>
                             <%--עדכון של פרטים בתוך עדכון תמיכה--%>
@@ -864,43 +875,44 @@
                                 <tr style="vertical-align: top;">
                                     <td style="">
                                         <asp:HiddenField runat="server" ID="hdnId" Value='<%#Eval("Id") %>' />
-                                        <asp:TextBox runat="server" ID="tbDetails" MaxLength="150" TextMode="MultiLine" Rows="4" Columns="49" Text='<%#Eval("Text") %>'  onkeyup="if (this.value.length==350) alert('לא ניתן להקליד עוד')"/>
+                                        <asp:TextBox runat="server" ID="tbDetails" MaxLength="150" TextMode="MultiLine" Rows="4" Columns="49" Text='<%#Eval("Text") %>' onkeyup="if (this.value.length==350) alert('לא ניתן להקליד עוד')" />
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ForeColor="Red" ControlToValidate="tbDetails" ValidationExpression="^[\s\S]{0,350}$" ErrorMessage="טקסט ארוך מדי"></asp:RegularExpressionValidator>
 
                                     </td>
                                     <td>
                                         <asp:DropDownList runat="server" ID="ddlPeriod" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" SelectedValue='<%#Eval("PeriodId") %>' Width="90"></asp:DropDownList>
                                         <asp:TextBox runat="server" ID="tbPeriod" Width="85" MaxLength="40" Style="display: none;" TextMode="MultiLine" OnPreRender="tbOther_PreRender" />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ForeColor="Red" ErrorMessage="חובה למלא את כל השדות" ControlToValidate="ddlPeriod"  ></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ForeColor="Red" ErrorMessage="חובה למלא את כל השדות" ControlToValidate="ddlPeriod"></asp:RequiredFieldValidator>
                                     </td>
                                     <td>
-                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_1" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90"><%-- SelectedValue='<%#Eval("AmountId") %>'>--%>
+                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_1" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
+                                            <%-- SelectedValue='<%#Eval("AmountId") %>'>--%>
                                         </asp:DropDownList><br />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ForeColor="Red" ErrorMessage="חובה למלא את כל השדות" ControlToValidate="ddlFrequesncy_1" ></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ForeColor="Red" ErrorMessage="חובה למלא את כל השדות" ControlToValidate="ddlFrequesncy_1"></asp:RequiredFieldValidator>
                                         <asp:HiddenField runat="server" ID="hdnFrequesncy_1" Value='<%#Eval("AmountId") %>' />
-                                        
-                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_2" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90"> <%--SelectedValue='<%#Eval("FrequencyId") %>'--%>
+
+                                        <asp:DropDownList runat="server" ID="ddlFrequesncy_2" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
+                                            <%--SelectedValue='<%#Eval("FrequencyId") %>'--%>
                                         </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ForeColor="Red" ErrorMessage="חובה למלא את כל השדות" ControlToValidate="ddlFrequesncy_2"  ></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ForeColor="Red" ErrorMessage="חובה למלא את כל השדות" ControlToValidate="ddlFrequesncy_2"></asp:RequiredFieldValidator>
                                         <asp:HiddenField runat="server" ID="hdnFrequesncy_2" Value='<%#Eval("FrequencyId") %>' />
                                     </td>
                                     <td>
-                                        <asp:DropDownList runat="server" ID="ddlLasting" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90" > <%--SelectedValue='<%#Eval("LengthId") %>'>--%>
+                                        <asp:DropDownList runat="server" ID="ddlLasting" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90">
+                                            <%--SelectedValue='<%#Eval("LengthId") %>'>--%>
                                         </asp:DropDownList>
                                         <asp:HiddenField runat="server" ID="hdnddlLasting" Value='<%#Eval("LengthId") %>' />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ForeColor="Red" ErrorMessage="חובה למלא את כל השדות" ControlToValidate="ddlLasting"  ></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ForeColor="Red" ErrorMessage="חובה למלא את כל השדות" ControlToValidate="ddlLasting"></asp:RequiredFieldValidator>
                                     </td>
                                     <td>
                                         <asp:DropDownList runat="server" ID="ddlHelper" AppendDataBoundItems="true" OnDataBinding="ddl_DataBinding" OnPreRender="ddl_PreRender" Width="90" SelectedValue='<%#Eval("HelperId") %>'>
                                         </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ForeColor="Red" ErrorMessage="חובה למלא את כל השדות" ControlToValidate="ddlHelper" ></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ForeColor="Red" ErrorMessage="חובה למלא את כל השדות" ControlToValidate="ddlHelper"></asp:RequiredFieldValidator>
                                         <br />
                                         <asp:TextBox runat="server" ID="tbHelper" Width="85" MaxLength="40" Style="display: none;" TextMode="MultiLine" OnPreRender="tbOther_PreRender" onkeypress="if (this.value.length==350) alert('לא ניתן להקליד עוד')" />
                                     </td>
                                     <td style="white-space: nowrap;">
-                                        <asp:Button runat="server" ID="lnkbSave" Text="שמירה" CssClass="btns" CommandName="update" >
-
-                                        </asp:Button><asp:Button runat="server" ID="lnkbCancel" Text="ביטול" CommandName="cancel" CssClass="btns" OnClick="lnkbCancel_Click" CausesValidation="false"></asp:Button></td>
+                                        <asp:Button runat="server" ID="lnkbSave" Text="שמירה" CssClass="btns" CommandName="update"></asp:Button><asp:Button runat="server" ID="lnkbCancel" Text="ביטול" CommandName="cancel" CssClass="btns" OnClick="lnkbCancel_Click" CausesValidation="false"></asp:Button></td>
                                 </tr>
                             </EditItemTemplate>
                         </asp:ListView>
@@ -954,7 +966,7 @@
         <img src="Close.png" onclick="javascript:hideweek();" alt="סגור" style="position: absolute; top: 0px; left: 0px;" />
         <span style="font-size: large; font-weight: bold;">תוכנית שבועית</span>
         <hr />
-        <asp:ListView runat="server" ID="LVWeeklyPlan" DataSourceID="DSWeeklyPlan" EnableViewState="false" >
+        <asp:ListView runat="server" ID="LVWeeklyPlan" DataSourceID="DSWeeklyPlan" EnableViewState="false">
             <LayoutTemplate>
                 <table id="itemPlaceholderContainer" runat="server" class="lstv" style="width: 800px; direction: rtl;">
                     <thead>
@@ -1035,7 +1047,7 @@
                 WHERE f.FormID = @FormId) x
         ORDER BY Ld Desc,gid        
         "--%>
-    <asp:SqlDataSource ID="DSGRAPH" runat="server" 
+    <asp:SqlDataSource ID="DSGRAPH" runat="server"
         ConnectionString="<%$ ConnectionStrings:Book10PE %>"
         OnSelecting="DSGRAPH_Selecting"
         SelectCommand="SELECT grp, perc, gid FROM  Book10_21.dbo.p5t_FormResults  WHERE FormID = (select l1.CustRelateID 
@@ -1044,7 +1056,7 @@
 															  from Book10_21.dbo.CustEventList l 
 															  where l.CustomerID=@CustomerId and l.CustEventTypeID=@EventTypeId)) ORDER BY gid"
         CancelSelectOnNullParameter="False">
-        
+
         <SelectParameters>
             <asp:QueryStringParameter Name="CustomerId" QueryStringField="cid" />
             <asp:Parameter Name="EventTypeId" />

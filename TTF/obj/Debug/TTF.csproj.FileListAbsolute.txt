@@ -20,6 +20,6 @@ C:\Users\victoria\Documents\Visual Studio 2012\Projects\TTF_X\TTF\obj\Debug\TTF.
 C:\Users\victoria\Source\Repos\TTF\TTF\bin\TTF.dll.config
 C:\Users\victoria\Source\Repos\TTF\TTF\bin\TTF.dll
 C:\Users\victoria\Source\Repos\TTF\TTF\bin\TTF.pdb
-C:\Users\victoria\Source\Repos\TTF\TTF\obj\Debug\TTF.csprojResolveAssemblyReference.cache
 C:\Users\victoria\Source\Repos\TTF\TTF\obj\Debug\TTF.dll
 C:\Users\victoria\Source\Repos\TTF\TTF\obj\Debug\TTF.pdb
+C:\Users\victoria\Source\Repos\TTF\TTF\obj\Debug\TTF.csprojResolveAssemblyReference.cache
