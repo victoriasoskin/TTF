@@ -80,7 +80,7 @@
         }
         function delweek(x, p) {
             if (confirm('למחוק?')) {
-                var y = parseInt(x / 100000);
+                var y = parseInt(x / 1000000);
                 window.open('delweek.aspx?id=' + y, '_blank');
                 //            __doPostBack('+_+week', 'd|א|' + y);
             }
