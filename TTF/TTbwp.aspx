@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TTFSite.Master" AutoEventWireup="true" CodeBehind="TTbwp.aspx.cs" Inherits="TTF.TTbwp" MaintainScrollPositionOnPostback="true" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TTFSite.Master" AutoEventWireup="true" CodeBehind="TTbwp.aspx.cs" Inherits="TTF.TTbwp" MaintainScrollPositionOnPostback="true" %>
+    <%-- EnableEventValidation="false" %>--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -75,7 +76,7 @@
         }
         function delweek(x, p) {
             if (confirm('למחוק?')) {
-                var y = parseInt(x / 100000);
+                var y = parseInt(x / 1000000);
                 window.open('delweek.aspx?id=' + y, '_blank');
                 //            __doPostBack('+_+week', 'd|א|' + y);
             }
@@ -244,22 +245,21 @@
                     <td>
                         <table class="ptbl">
                             <tr>
-                                <td class="rowHeader" style="width: 50px;">תחום
-                                </td>
-                                <td class="rowsColor">
-                                    <%#Eval("Range") %>
-                                </td>
                                 <tr>
-                                    <td class="rowHeader" style="width: 50px;">נושא
-                                    </td>
+                                    <td class="rowHeader" style="width: 50px;">תחום</td>
+                                    <td class="rowsColor">
+                                        <%#Eval("Range") %>
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td class="rowHeader" style="width: 50px;">נושא</td>
                                     <td class="rowsColor">
                                         <%#Eval("Subject") %>
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td class="rowHeader" rowspan="2">מטרת על
-                                    </td>
+                                    <td class="rowHeader" rowspan="2">מטרת על</td>
                                     <td class="rowsColor">
                                         <%#Eval("Purpose") %>
                                     </td>
@@ -367,11 +367,13 @@
                     <td>
                         <table class="ptblAlternate">
                             <tr>
-                                <td class="rowHeaderAlternate" style="width: 50px;">תחום
+                                <tr>
+                                    <td class="rowHeaderAlternate" style="width: 50px;">תחום
                                 </td>
-                                <td class="rowsColorAlternate">
-                                    <%#Eval("Range") %>
+                                    <td class="rowsColorAlternate">
+                                        <%#Eval("Range") %>
                                 </td>
+                                </tr>
                                 <tr>
                                     <td class="rowHeaderAlternate" style="width: 50px;">נושא
                                     </td>
@@ -516,11 +518,11 @@
                                 </tr>
                                 <tr>
                                     <td class="NewTTLable" rowspan="2">מטרת על</td>
-                                    <td>
-                                        <asp:DropDownList runat="server" ID="ddlPurpose" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged" Width="150" OnPreRender="ddl_PreRender" OnDataBinding="ddl_DataBinding"></asp:DropDownList>
-                                        <asp:RequiredFieldValidator runat="server" ID="rfvPurpose" ControlToValidate="ddlPurpose" ErrorMessage="יש לבחור במטרה" ForeColor="Red" Display="Dynamic" />
-                                        <br />
-                                        <asp:TextBox runat="server" ID="tbPurpose" Columns="50" MaxLength="50" Style="display: none;" OnPreRender="tbOther_PreRender" />
+                                    <td>                                       
+                                            <asp:DropDownList runat="server" ID="ddlPurpose" AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddl_SelectedIndexChanged" Width="150" OnPreRender="ddl_PreRender" OnDataBinding="ddl_DataBinding"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator runat="server" ID="rfvPurpose" ControlToValidate="ddlPurpose" ErrorMessage="יש לבחור במטרה" ForeColor="Red" Display="Dynamic" />
+                                            <br />
+                                            <asp:TextBox runat="server" ID="tbPurpose" Columns="50" MaxLength="50" Style="display: none;" OnPreRender="tbOther_PreRender" />
                                         <%--<asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ControlToValidate="tbPurpose" ErrorMessage="כאשר בוחרים ב 'אחר (...)' יש להקליד מטרה" ForeColor="Red" Display="Dynamic" />--%>
                                     </td>
                                 </tr>

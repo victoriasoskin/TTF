@@ -38,13 +38,18 @@ namespace TTF
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
+            u = new TTF.App_Code.Util();
+            if (u.selectDBScalar("select userid from book10.dbo.TestWP").ToString() == getUserId().ToString())
+            {
+                Response.Redirect(Request.Url.AbsoluteUri.ToLower().Replace("ttbwp", "testwp"));
+            }
             cCustEventTypeId = int.Parse(Request.QueryString["ET"]);
             cFormTypeId = int.Parse(Request.QueryString["FT"]);
 
-            u = new TTF.App_Code.Util();  
+
 
             h = new TTF.App_Code.bpHelber(Page, cFormTypeId, cCustEventTypeId);
-          //  h.lvMP = lvMP;
+            //  h.lvMP = lvMP;
             h.lvWP = lvWP;
             h.LVWeeklyPlan = LVWeeklyPlan;
             h.hdnCurrentEventId = hdnCurrentEventId;
@@ -58,13 +63,13 @@ namespace TTF
             h.divWeeklytimetable = divWeeklytimetable;
             h.lvWP = lvWP;
             Session["UserId"] = getUserId();
-            if (!IsPostBack)
-            {
-                if (cFormTypeId==13) //if דיור תפקוד נמוך ובית ספר
-                {
-                    h.initForm(13);
-                }
-                else
+            //if (!IsPostBack)
+            //{
+            //    if (cFormTypeId == 13) //if דיור תפקוד נמוך ובית ספר
+            //    {
+            //        h.initForm(13);
+            //    }
+            //    else
                     h.initForm();
                 DataTable dt = h.p5Details(139);
                 //DataTable dt = h.p5Details(cCustEventTypeId);
@@ -79,7 +84,7 @@ namespace TTF
                 }
 
                 lvHdr.DataBind();
-            }
+           // }
             h.selectAction();
 
         }
@@ -315,7 +320,7 @@ namespace TTF
                         li.Selected = true;
                     }
                 }
-              }
+            }
             h.showTextBoxifOther(ddl, lvi);
         }
 
@@ -403,19 +408,19 @@ namespace TTF
         {
             ListView lv = (ListView)sender;
             ListViewItem lvi = (ListViewItem)lv.NamingContainer;
-            
+
             h.UpdeteDetails(lv.EditItem, lvi.DisplayIndex);
             lv.EditIndex = -1;
-          //  lv.InsertItemPosition = InsertItemPosition.LastItem;
+            //  lv.InsertItemPosition = InsertItemPosition.LastItem;
         }
         protected void lvWP_PreRender(object sender, System.EventArgs e)
         {
             //if (lvMP.Items.Count > 0 || true)    //++ fake force lvwp to show
             //{
-                if (lvWP.Items.Count == 0)
-                    lvWP.InsertItemPosition = InsertItemPosition.FirstItem;
-                else
-                    if (hdnItemHandled.Value == string.Empty) lvWP.InsertItemPosition = InsertItemPosition.None;
+            if (lvWP.Items.Count == 0)
+                lvWP.InsertItemPosition = InsertItemPosition.FirstItem;
+            else
+                if (hdnItemHandled.Value == string.Empty) lvWP.InsertItemPosition = InsertItemPosition.None;
             //}
             //else
             //    lvWP.InsertItemPosition = InsertItemPosition.None;
