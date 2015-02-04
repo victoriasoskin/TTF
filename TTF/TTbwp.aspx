@@ -32,7 +32,6 @@
             background-color: white;
             white-space: normal;
             font-size: 14px;
-            background-color: white;
             border: 2px outset lightgray;
             cursor: pointer;
             vertical-align: top;
@@ -76,7 +75,7 @@
         }
         function delweek(x, p) {
             if (confirm('למחוק?')) {
-                var y = parseInt(x / 100000);
+                var y = parseInt(x / 1000000);
                 window.open('delweek.aspx?id=' + y,'_blank');
                 //            __doPostBack('+_+week', 'd|א|' + y);
             }

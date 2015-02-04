@@ -23,3 +23,8 @@ C:\Users\victoria\Source\Repos\TTF\TTF\bin\TTF.pdb
 C:\Users\victoria\Source\Repos\TTF\TTF\obj\Debug\TTF.csprojResolveAssemblyReference.cache
 C:\Users\victoria\Source\Repos\TTF\TTF\obj\Debug\TTF.dll
 C:\Users\victoria\Source\Repos\TTF\TTF\obj\Debug\TTF.pdb
+C:\Users\Ariel\Source\Repos\TTF\TTF\bin\TTF.dll.config
+C:\Users\Ariel\Source\Repos\TTF\TTF\bin\TTF.dll
+C:\Users\Ariel\Source\Repos\TTF\TTF\bin\TTF.pdb
+C:\Users\Ariel\Source\Repos\TTF\TTF\obj\Debug\TTF.dll
+C:\Users\Ariel\Source\Repos\TTF\TTF\obj\Debug\TTF.pdb

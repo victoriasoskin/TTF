@@ -22,6 +22,11 @@ namespace TTF
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
+            if (Request.QueryString["ET"] == null)
+            {
+                Response.Redirect("/TTewp.aspx?ET=174&FT=18&CID=225455237&F=122&E=51026");
+            }
+            
             cCustEventTypeId = int.Parse(Request.QueryString["ET"]);
             cFormTypeId = int.Parse(Request.QueryString["FT"]);
             u = new TTF.App_Code.Util();
@@ -608,12 +613,13 @@ namespace TTF
 
         protected void DS_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
+
             e.Command.Parameters["@EventId"].Value = h.EventId;
-            //try
-            //{
-            //    e.Command.Parameters["@FormTypeId"].Value = h.FormTypeId;
-            //}
-            //catch (Exception ex) { }
+            try
+            {
+                e.Command.Parameters["@FormTypeId"].Value = h.FormTypeId;
+            }
+            catch (Exception ex) { }
             try
             {
                 e.Command.Parameters["@NewFormTypeId"].Value = EduNewForm;

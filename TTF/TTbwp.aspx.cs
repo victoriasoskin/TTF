@@ -38,6 +38,10 @@ namespace TTF
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
+            if (Request.QueryString["ET"] == null)
+            {
+                Response.Redirect("/TTbwp.aspx?FT=11&ET=157&CID=22768121&F=122&E=51026");
+            }
             cCustEventTypeId = int.Parse(Request.QueryString["ET"]);
             cFormTypeId = int.Parse(Request.QueryString["FT"]);
 
